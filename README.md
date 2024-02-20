@@ -1,0 +1,3 @@
+## Example accessing a file via Storage Access Framework in nodejs-mobile
+
+This is a quick example to test out reading a file accessed via Android's Storage Access Framework (SAF) from nodejs-mobile. Since Android has locked down direct access to the filesystem from apps, the recommended way is to use SAF via a user file-picker, which returns a URL starting with `content://`. This cannot be read from the nodejs-mobile thread, but it is possible to detach a file descriptor from the SAF URL, and that can be read in nodejs-mobile. It can be read either by using the integer file descriptor, or reading `/dev/fd/${fd}` as a regular file.
